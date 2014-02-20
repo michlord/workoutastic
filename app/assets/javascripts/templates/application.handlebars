@@ -1,0 +1,23 @@
+{{outlet modal}}
+<div class="bs-header" style="background-color: #455F8F;">
+  <div class="container">
+    <h1 style="font-size: 60px; color: #fff; margin: .67em 0; text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;">Workoutastic</h1>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+
+        <ul class="nav" data-offset-top="146" data-offset-bottom="200">
+            {{#link-to 'index' tagName='li' href=false}}<a {{bind-attr href='view.href'}}> <span class="glyphicon glyphicon-home"></span> Home</a>{{/link-to}}
+            {{#link-to 'login' tagName='li' href=false}}<a {{bind-attr href='view.href'}}> <span class="glyphicon glyphicon-user"></span> Login</a>{{/link-to}}
+            {{#link-to 'exercises' tagName='li' href=false}}<a {{bind-attr href='view.href'}}> <span class="glyphicon glyphicon-book"></span> Exercises</a>{{/link-to}}
+            {{#link-to 'workouts' tagName='li' href=false}}<a {{bind-attr href='view.href'}}> <span class="glyphicon glyphicon-list"></span> Workouts</a>{{/link-to}}
+        </ul>
+      
+    </div>
+    <div class="col-md-10">
+      {{outlet}}
+    </div>
+  </div>
+</div>

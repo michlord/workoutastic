@@ -1,0 +1,31 @@
+<h2>Workouts</h2>
+<div class="row">
+  <div class="col-md-4">
+    <button {{action "goToNewWorkout"}} class="btn btn-success btn-block">Create new</button>
+  </div>
+  <div class="col-md-4 col-md-offset-4">
+    <div class="input-group">
+      {{input class="form-control" type="text" value=searchString placeholder="Search"}}
+      <span class="input-group-btn">
+        <button class="btn btn-default active disabled" type="button"><span class="glyphicon glyphicon-search"></span></button>
+      </span>
+    </div>
+  </div>
+</div>
+
+<hr/>
+    
+{{#each workout in paginatedContent}}
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">{{workout.name}}</h4>
+      <p>{{workout.description}}</p>
+    </div>
+    <div class="pull-right" href="#">
+      <button {{action "goToWorkout" workout}} class="btn btn-default">Show</button>
+      <button {{action "remove" workout}} class="btn btn-danger" type="button">Delete</button>
+    </div>
+  </div>
+{{/each}}
+
+{{view Workoutastic.PaginationView }}

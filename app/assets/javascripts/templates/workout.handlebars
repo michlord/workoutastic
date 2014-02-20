@@ -1,0 +1,29 @@
+<h2>Workout</h2>
+
+<form role="form">
+  <div class="form-group">
+    <label>Name:</label>
+    {{name}}
+  </div>
+  <div class="form-group">
+    <label>Description:</label>
+    {{description}}
+  </div>
+  <div class="form-group">
+    <label>Exercises:</label>
+    {{#each exercise in model.exercises}}
+        <div class="media">
+            <img style="max-height: 130px; float:left; margin: 10px;" {{bind-attr src=exercise.image}} class="img-thumbnail"></img>
+            <div class="media-body">
+              <h4 class="media-heading">{{exercise.name}}</h4>
+              <p>{{exercise.description}}</p>
+            </div>
+        </div>
+    {{/each}}
+  </div>
+<button {{action "goToWorkouts"}} class="btn btn-default">Back</button>
+<button {{action "edit" model}} class="btn btn-default">Edit workout</button>
+</form>
+
+
+{{outlet}}

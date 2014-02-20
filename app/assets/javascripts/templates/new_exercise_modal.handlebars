@@ -1,0 +1,33 @@
+{{#modal-dialog hide="dismissModal"}}
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title">New exercise</h4>
+        </div>
+        <div class="modal-body">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="inputName" class="col-sm-2 control-label">Name</label>
+              <div class="col-sm-10">
+                {{input type="text" value=name placeholder="Exercise name" class="form-control" id="inputName"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputDescription" class="col-sm-2 control-label">Description</label>
+              <div class="col-sm-10">
+                {{textarea value=description rows="10" class="form-control" id="inputDescription"}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="inputFile" class="col-sm-2 control-label">Image file</label>
+              <div class="col-sm-10">
+                {{view Workoutastic.ImageInputView imageSource=image}}
+                <p class="help-block">Image is used for thumbnail. Make sure it isn't too big!</p>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button {{action "dismissModal"}} class="btn btn-default" data-dismiss="modal">Close</button>
+          <button {{action "save"}} {{bind-attr class=":btn :btn-primary canSave::disabled"}}>Save changes</button>
+      </div>
+{{/modal-dialog}}

@@ -1,0 +1,12 @@
+{{#if view.pages}}
+    <ul class="pagination">
+      
+      <li {{bind-attr class="view.isPrevDisabled:disabled"}}><a {{action "prevPage" target="view"}}>&laquo;</a></li>
+      {{#each view.pages itemViewClass="view.PageButton" page="content"}}
+          
+          <a {{action "goToPage" target="view"}}>{{this}}</a>
+      {{/each}}
+      <li {{bind-attr class="view.isNextDisabled:disabled"}}><a {{action "nextPage" target="view"}}>&raquo;</a></li>
+
+    </ul>
+{{/if}}
