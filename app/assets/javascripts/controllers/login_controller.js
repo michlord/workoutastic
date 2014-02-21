@@ -50,6 +50,7 @@ Workoutastic.LoginController = Ember.Controller.extend({
         logout: function(){
             localStorage.removeItem('token');
             this.set('token',undefined);
+            window.location.reload(true);
         }
     }
 });
